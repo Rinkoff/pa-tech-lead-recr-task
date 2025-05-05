@@ -75,7 +75,7 @@ def main(available_years=["2015", "2016", "2017", "2018", "2019"]):
                     xref="paper", yref="paper",
                     showarrow=False,
                     font=dict(size=20))
-                    st.plotly_chart(fig_hm)
+            st.plotly_chart(fig_hm)
 
             fig_cor = px.scatter(df, x="Happiness Score", y="Country", title="Correlation")
 
@@ -91,19 +91,19 @@ def main(available_years=["2015", "2016", "2017", "2018", "2019"]):
         if "All" not in selected_country:
             merged_df = merged_df[merged_df["Country"].isin(selected_country)]
 
-        for country in selected_country:
-            country_df = merged_df[merged_df["Country"] == country]
+            for country in selected_country:
+                country_df = merged_df[merged_df["Country"] == country]
 
-            trend_fig = px.line(
-                country_df,
-                x="Year",
-                y="Happiness Score",
-                title=f"Time Trend for {country}",
-                markers=True
-            )
-            st.plotly_chart(trend_fig)
-    else:
-        st.warning("This tab is active only when specific countries are selected. Please deselect 'All' to proceed.")
+                trend_fig = px.line(
+                    country_df,
+                    x="Year",
+                    y="Happiness Score",
+                    title=f"Time Trend for {country}",
+                    markers=True
+                )
+                st.plotly_chart(trend_fig)
+        else:
+            st.warning("This tab is active only when specific countries are selected. Please deselect 'All' to proceed.")
 
 
 

@@ -75,6 +75,7 @@ def main(available_years=["2015", "2016", "2017", "2018", "2019"]):
                     xref="paper", yref="paper",
                     showarrow=False,
                     font=dict(size=20))
+            
             st.plotly_chart(fig_hm)
 
             fig_cor = px.scatter(df, x="Happiness Score", y="Country", title="Correlation")

@@ -4,11 +4,14 @@ import pandas as pd
 
 def file_download(df: pd.DataFrame, year:str) -> str:
     """
-    Allows the users to download the current df.
+    Generates a downloadable CSV file from the provided DataFrame for a specific year.
 
     :param df: pd.DataFrame
+        The DataFrame containing the data to be saved.
     :param year: str
+        The year (as a string) that will be used to name the file.
     :return: str(href)
+        A HTML download link (href) that allows users to download the CSV file.
     """
 
     csv = df.to_csv(index=False)

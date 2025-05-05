@@ -9,7 +9,10 @@ def load_data(year: str) -> pd.DataFrame|None:
     data when needed
 
     :param year:str
+        The year for which to load the data (e.g., "2017").
     :return:pd.DataFrame|None
+        A DataFrame containing the happiness data for the specified year.
+        Returns None if the data for the given year is not available or if loading fails.
     """
 
     column_params = {
@@ -59,15 +62,23 @@ def load_data(year: str) -> pd.DataFrame|None:
 
 def validate_rank_and_score(df: pd.DataFrame, score_val = "Happiness Score", rank_val = "Happiness Rank") -> bool:
     """
-    Validate the rank and score to check for issues in the initial data.
+    Validates the  basic integrity of the initial rank and score columns in the DataFrame.
 
     :param df: pd.DataFrame
+        The DataFrame containing data for validation.
     :param score_val:str
+         The name of the column containing the happiness score (default is "Happiness Score")
     :param rank_val:str
+        The name of the column containing the happiness rank (default is "Happiness Rank").
     :return: bool
+        True if both columns exist and contain valid numeric data, False otherwise.
     """
 
-    is_valid = True
+    if score_val not in df.columns or rank_val not in df.columns:
+        return False
+
+    if df[score_val].isnull().any() or df[rank_val].isnull().any():
+        return False
 
     for i in range(len(df)):
         for j in range(len(df)):
@@ -82,18 +93,28 @@ def validate_rank_and_score(df: pd.DataFrame, score_val = "Happiness Score", ran
 
             if score_i > score_j:
                 if rank_i >= rank_j:
-                    is_valid = False
+                    return False
 
             elif score_i < score_j:
                 if rank_i <= rank_j:
-                    is_valid = False
+                    return False
 
-
-    return is_valid
+    return True
 
 
 
 def get_merged_df(first_year: int, last_year: int) -> pd.DataFrame:
+    """
+    Loads and merges the data for a range of years into a single DataFrame.
+
+    :param first_year: int
+         The starting year of the range (inclusive).
+    :param last_year: int
+        The ending year of the range (inclusive).
+    :return: pd.DataFrame
+        A DataFrame containing the merged happiness data across the specified years.
+    """
+
     all_data = []
 
     for year in range(first_year, last_year+1):

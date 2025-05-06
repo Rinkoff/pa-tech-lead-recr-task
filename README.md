@@ -1,7 +1,6 @@
 # 🌍 Happiness Data App
 
-This is a web application for visualizing data from the World Happiness Reports. It displays interactive maps, charts, 
-and analyses of happiness scores by country and year.
+This is a web application for visualizing data. It displays interactive maps, charts, and analyses of happiness scores by country and year.
 
 ---
 

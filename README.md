@@ -70,6 +70,11 @@ Then open your browser at:
 
 ---
 
+## Public Link
+[Happiness Data App](https://pa-tech-lead-recr-task-7u3gqbjgvdnowk5udyjvyj.streamlit.app/)
+
+---
+
 ## 🗂 Project Structure
 ```
 ├── .streamlit/

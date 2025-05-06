@@ -55,7 +55,9 @@ The `config.toml` file allows you to customize the behavior and appearance of yo
 
 ## 🐳 Run with Docker
 
-1️⃣ Make sure Docker is installed.
+1️⃣ Make sure Docker is installed and clone the repository:
+`git clone Rinkoff/pa-tech-lead-recr-task`  
+`cd pa-tech-lead-recr-task`
 
 2️⃣ Build the Docker image:  
 `docker build -t pa-tech-lead-recr-task .`
@@ -69,6 +71,7 @@ Then open your browser at:
 ---
 
 ## 🗂 Project Structure
+"""
 ├── .streamlit/
 │ └── config.toml
 │ └── secrets.toml

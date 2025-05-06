@@ -1,85 +1,85 @@
-# 🌍 World Happiness Dashboard
+# 🌍 Happiness Data App
 
-Welcome!
+This is a web application for visualizing data from the World Happiness Reports. It displays interactive maps, charts, 
+and analyses of happiness scores by country and year.
 
-This take-home assignment is designed to help us understand your Python, data wrangling, and lightweight app-building skills. It's based on the **World Happiness Report** dataset and is intended to be practical, open-ended, and fun.
+---
 
-## 🎯 Objective
+## ⚙ Prerequisites
 
-Build an interactive [Streamlit app](https://streamlit.io/) that allows users to explore and compare happiness metrics across countries and years.
+1. **Python 3.10+**
+2. **Dependencies:**
+   - pandas
+   - streamlit
+   - plotly
+   - base64 
+   - etc.
 
-You'll use the World Happiness dataset and [Pandas](https://pandas.pydata.org) + Streamlit to:
-- Load and clean the data
-- Visualize happiness scores across countries, regions, and time
-- Allow simple filtering and exploration
+All dependencies are listed in `requirements.txt`.
 
+---
 
-## 🗃️ Dataset
+## Configuration: `config.toml`
 
-The World Happiness data is available in the /data folder of this repository as individual per year csv files that hold happines KPIs. 
+The `config.toml` file allows you to customize the behavior and appearance of your Streamlit app. By configuring this file, you can control the app's port and theme.
 
-## 📌 Features (Minimum)
+#### Server Settings:
+- **`port = 8501`**: Sets the port on which the app will run (default is 8501). You can change this if needed.
 
-Your Streamlit app should allow the user to:
+#### Theme Settings:
+- **`primaryColor`**: Customizes the primary color of your app (e.g., buttons, headers).
+- **`backgroundColor`**: Sets the background color of the app.
+- **`secondaryBackgroundColor`**: Changes the color of secondary background areas (e.g., sidebar).
+- **`textColor`**: Sets the color for the text in your app.
+- **`font`**: Defines the font used in your app's interface.
 
-1. **Select a year** (if using multi-year data)
-2. **Filter by region** or country
-3. **View happiness rankings**
-   - Display top N happiest countries
-   - Display bottom N countries
-4. **Plot correlations** between score components and happiness score
+---
 
-Bonus:
-- Time trend visualizations (if using multi-year)
-- Display (your) statistical insights (e.g., "most influential factor")
-- Add explanations or hover-tooltips for variables
-- Change the default color scheme to something that you like.
-- Do a multi-page app.
+## 🛠 How to Run Locally
 
-## 🛠️ Tech Requirements
+1️⃣ Clone the repository:  
+`git clone Rinkoff/pa-tech-lead-recr-task`  
+`cd pa-tech-lead-recr-task`
 
-- Python 3.9 - 3.11
-- Pandas
-- Streamlit
-- Any data viz libs you're comfortable with (Matplotlib, Seaborn, Plotly, etc.)
-- At minimum, have a requirements.txt file and a README.md files that explain how to run your app locally.
+2️⃣ (Optional) Set up a virtual environment:  
+`python -m venv venv`  
+`.\venv\Scripts\activate`
 
-## 📦 Submission Guidelines
+3️⃣ Install the dependencies:  
+`pip install -r requirements.txt`
 
-Please share a GitHub repo or a zipped folder containing:
+4️⃣ Run the app:  
+`streamlit run app.py`  
 
-- Your source code as Python scripts
-- `README.md` with setup instructions
-- `requirements.txt` for dependencies
-- Bonus: `Dockerfile` if you'd like to show deployment readiness (optional)
-- Bonus: Use an environment manager, such as [uv](https://docs.astral.sh/uv/guides/install-python)
-- Bonus: Figure out how to host your app publicly without paying any money.
+---
 
+## 🐳 Run with Docker
 
-## ⏱️ Timeline
-Submissions are valid if the following criteria are completed - No longer than 7 callendar days after you're given access to this repo:
-- A solution needs to be submitted to your own github repository (unless a zip file is to be delivered.)
-- An email, informing Ivelin.Hristov@ipsos.com and HR.bulgaria@ipsos.com about the submission is sent through.
-- No changes or submissions will be accepted after this period.
+1️⃣ Make sure Docker is installed.
 
-Pro tip: Focus on clarity, completeness, and pragmatism over perfection.
+2️⃣ Build the Docker image:  
+`docker build -t pa-tech-lead-recr-task .`
 
-## ✅ Evaluation Criteria
+3️⃣ Run the container:  
+`docker run -p 8501:8501 pa-tech-lead-recr-task`
 
-We'll evaluate your submission based on:
+Then open your browser at:  
+[http://localhost:8501](http://localhost:8501)
 
-| Criteria                | Weight |
-|-------------------------|--------|
-| Code quality (clean, modular, readable) | ⭐⭐⭐⭐ |
-| Data handling & transformations | ⭐⭐⭐ |
-| Streamlit UI design & interactivity | ⭐⭐⭐ |
-| Visualizations & insights | ⭐⭐⭐ |
-| Self documentation & usability | ⭐⭐ |
-| Initiative & extras (bonus features, design, etc.) | ⭐⭐ |
+---
 
-## 🙌 Good Luck!
+## 🗂 Project Structure
+├── .streamlit/
+│ └── config.toml
+│ └── secrets.toml
+├── requirements.txt
+├── Dockerfile
+├── README.md
+├── data/
+│ └── (CSV files for each year)
+├── utils/
+│ └── data_processing.py
+│ └── file_helpers.py
+├── app.py
+└── ...
 
-We’re excited to see how you explore this data and build an app. If you’d like to explain or highlight any part of your approach, feel free to leave a note in the README or as code comments.
-
-Happy coding!  
-— The PA Tech Team
